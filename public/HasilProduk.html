@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo bentala putih.png">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/style.css">    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>BENTALA</title>
+    <style>
+        /* Animasi card produk */
+        #hasilProdukContainer > div {
+            transition: all 0.3s ease;
+        }
+        
+        #hasilProdukContainer > div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Empty state styling */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            border: 1px dashed #d1d5db;
+        }
+        
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+        
+        /* Loading state */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body>    
+    <nav class="fixed top-0 w-full h-14 z-10 bg-[--putih]">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-1">
+                <div class="absolute left-10 top-4 h-16 w-16 space-x-10">
+                    <ul class="sm:flex space-x-10">
+                        <li><a href="koleksi.html" class="text-[--hitam] hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openKoleksi()">Koleksi</a></li>
+                        <li><a href="hasilproduk.html" class="text-[--hitam] hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openHasilProduk()">Toko</a></li>
+                        <li><a class="text-[--hitam]  hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openTentang()">Tentang</a></li>
+                    </ul>
+                    <script>
+                        function openKoleksi() {
+                            window.location.href = 'Koleksi.html';
+                        }
+
+                         function openHasilProduk() {
+                            window.location.href = 'HasilProduk.html';
+                        }
+                        
+                        function openTentang() {
+                            window.location.href = 'About.html';
+                        }
+                    </script>
+                </div>
+                <div class="absolute top-2.5 left-1/2 transform -translate-x-1/2">
+                    <a href="#" id="logo">
+                        <img src="img/Logo pack ur goods.png" alt="BENTALA" class="w-15 h-10">
+                    </a>
+                </div>
+                <div class="absolute top-2.5 right-5">
+                    <form class="space-x-10 flex items-center">
+                        <div class="relative">
+                            <input type="text" placeholder="Search" class="bg-transparent text-[--item] border-2 border-[--hitam] rounded-lg py-1 pl-10 pr-3">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <button class="btn" type="button">
+                            <div onclick="openCart()">
+                                <i class="fa-solid fa-bag-shopping fa-lg" style="color: var(--hitam);"></i>
+                            </div>
+                        </button>
+                        <button class="btn" type="button">
+                            <div onclick="openProfile()">
+                                <i class="fa-regular fa-user fa-lg" style="color: var(--hitam);"></i>
+                            </div>
+                        </button>
+
+                        <script>
+                            function openCart() {
+                                window.location.href = 'Cart.html';
+                            }
+
+                            function openProfile() {
+                                window.location.href = 'Profile.html';
+                            }
+                        </script>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Halaman Utama -->
+    <main class="pt-16 px-4 py-8 h-full bg-[--putih]">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold text-[--hitam] mb-6">Toko</h1>
+            
+            <!-- Filter and sort controls -->
+            <div class="flex flex-wrap justify-between items-center mb-6">
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <select id="categoryFilter" class="appearance-none bg-transparent border border-[--hitam] rounded px-4 py-2 pr-8 focus:outline-none">
+                            <option value="">Semua Kategori</option>
+                            <option value="pria">Pria</option>
+                            <option value="wanita">Wanita</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <select id="sortOrder" class="appearance-none bg-transparent border border-[--hitam] rounded px-4 py-2 pr-8 focus:outline-none">
+                            <option value="newest">Terbaru</option>
+                            <option value="oldest">Terlama</option>
+                            <option value="priceAsc">Harga: Terendah</option>
+                            <option value="priceDesc">Harga: Tertinggi</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 sm:mt-0">
+                    <span class="text-sm text-gray-600" id="productCount">0 produk</span>
+                </div>
+            </div>
+            
+            <!-- Loading indicator -->
+            <div id="loadingIndicator" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                <div class="animate-pulse bg-gray-200 h-72 rounded-lg"></div>
+                <div class="animate-pulse bg-gray-200 h-72 rounded-lg"></div>
+                <div class="animate-pulse bg-gray-200 h-72 rounded-lg"></div>
+            </div>
+            
+            <!-- Product grid -->
+            <div id="hasilProdukContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 hidden">
+                <!-- Products will be displayed here -->
+            </div>
+            
+            <!-- Empty state -->
+            <div id="emptyState" class="hidden empty-state mt-8">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+                <h3 class="text-lg font-medium text-gray-900">Belum ada produk tersedia</h3>
+                <p class="mt-1 text-sm text-gray-500">Produk yang Anda tambahkan akan muncul di sini.</p>
+                <button onclick="window.location.href='admin tambahkan produk.html'" class="mt-4 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[--hitam] hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <i class="fas fa-plus mr-2"></i> Tambah Produk
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-[--hitam] text-[--putih] py-8">
+    <div class="mx-auto px-4">
+               <div class="relative">
+                   <div class="logo mb-4 md:mb-0 absolute left-0">
+                       <img class="company-logo-icon h-10" alt="Logo" src="img/Logo pack ur goods.png">
+                   </div>
+               </div>
+               <div class="flex md:flex-row justify-center items-center">
+                   <div class="flex flex-row space-x-14 mb-4 md:mb-0">
+                       <a href="#" class="hover:underline">Koleksi</a>
+                       <a href="#" class="hover:underline">FAQ</a>
+                       <a href="#" class="hover:underline">Customer Service</a>
+                       <a href="#" class="hover:underline">Pengembalian</a>
+                       <a href="#" class="hover:underline">Shipping Policy</a>
+                   </div>
+               </div>
+               <div class="relative">
+                   <div class="social-links flex space-x-4 absolute right-0 ">
+                       <i class="fa-brands fa-facebook fa-lg cursor-pointer" onclick="openVideo()"></i>
+                       <i class="fa-brands fa-instagram fa-lg cursor-pointer" onclick="openInstagram()"></i>
+                       <i class="fa-brands fa-twitter fa-lg cursor-pointer" onclick="openX()"></i>
+                       <i class="fa-brands fa-linkedin fa-lg cursor-pointer" onclick="openlinkedin()"></i>
+                       <i class="fa-brands fa-youtube fa-lg cursor-pointer" onclick="openyt()"></i>
+                   </div>
+                   <script>
+                       const logo = document.getElementById('logo');
+                       logo.addEventListener('click', function() {
+                           window.location.href = 'index.html'; 
+                       });
+               
+                       function openInstagram() {
+                           window.open('https://www.instagram.com/raffi1__/', '_blank');
+                       }
+               
+                       function openX() {
+                           window.open('https://x.com/Raffi1__', '_blank');
+                       }
+               
+                       function openlinkedin() {
+                           window.open('https://www.linkedin.com/in/muhamadraffi/', '_blank');
+                       }
+               
+                       function openyt() {
+                           window.open('https://www.instagram.com/raffi1__/', '_blank');
+                       }
+               
+                       function openVideo() {
+                           const videoPopup = document.getElementById('videoPopup');
+                           const myVideo = document.getElementById('myVideo');
+                           videoPopup.style.display = 'flex'; 
+                           myVideo.play(); 
+                       }
+               
+                       function answer(response) {
+                           const videoPopup = document.getElementById('videoPopup');
+                           videoPopup.style.display = 'none'; 
+                           const myVideo = document.getElementById('myVideo');
+                           myVideo.pause(); 
+                           myVideo.currentTime = 0; 
+                       }
+                   </script>
+               </div>
+               <div class="credits mt-8">
+                   <div class="divider border-t border-gray-600 mb-4"></div>
+                   <div class="flex flex-col md:flex-row justify-center items-center">
+                       <div class="flex space-x-4 text-sm mt-2 md:mt-0">
+                           <div class="text-sm">© 2024 Relume. All rights reserved.</div>
+                           <a href="#" class="hover:underline">Privacy Policy</a>
+                           <a href="#" class="hover:underline">Terms of Service</a>
+                           <a href="#" class="hover:underline">Cookies Settings</a>
+                       </div>
+                   </div>
+               </div>
+</footer>
+               
+               <div id="videoPopup" class="fixed inset-0 bg-black bg-opacity-75 items-center justify-center hidden">
+                   <div id="videoContent" class="relative w-screen h-screen flex items-center justify-center">
+                       <video id="myVideo" class="w-full h-full object-cover" loop>
+                           <source src="img/You are an idiot!! - Zuhuk (480p, h264, youtube).mp4" type="video/mp4">
+                       </video>
+                       <div id="question" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white rounded-lg transition-all duration-300 inline-flex flex-col items-center">
+                           <p class="text-lg font-semibold text-center">Raffi ganteng? Yes or No</p>
+                           <div class="flex justify-center mt-4 space-x-4">
+                               <button id="yesButton" class="bg-[--hitam] text-white px-4 py-2 rounded transition duration-200">Yes</button>
+                               <button id="noButton" class="bg-[--hitam] text-white px-4 py-2 rounded transition duration-200">No</button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               
+               <script>
+                   function moveQuestion() {
+                       const question = document.getElementById('question');
+                       const videoContent = document.getElementById('videoContent');
+                       
+                       if (!question || !videoContent) return;
+                   
+                       const containerWidth = videoContent.clientWidth;
+                       const containerHeight = videoContent.clientHeight;
+                   
+                       const questionWidth = question.offsetWidth;
+                       const questionHeight = question.offsetHeight;
+                   
+                       const randomX = Math.max(0, Math.min(containerWidth - questionWidth, Math.random() * containerWidth));
+                       const randomY = Math.max(0, Math.min(containerHeight - questionHeight, Math.random() * containerHeight));
+                   
+                       question.style.left = `${randomX}px`;
+                       question.style.top = `${randomY}px`;
+                       question.style.transform = 'translate(0, 0)'; 
+                   }
+               
+                   const yesButton = document.getElementById('yesButton');
+                   const noButton = document.getElementById('noButton');
+               
+                   noButton.addEventListener('mouseenter', () => {
+                       moveQuestion(); 
+                   });
+               
+                   yesButton.addEventListener('click', () => {
+                       window.location.href = 'index.html';
+                   });
+               </script>
+
+    <!-- Import scripts -->
+    <script src="src/productStorage.js"></script>
+    <script src="src/hasilProdukDisplay.js"></script>
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js'></script>
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js'></script>
+    <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'></script>
+    <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productContainer = document.getElementById('hasilProdukContainer');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const emptyState = document.getElementById('emptyState');
+            const productCount = document.getElementById('productCount');
+            const categoryFilter = document.getElementById('categoryFilter');
+            const sortOrder = document.getElementById('sortOrder');
+            
+            // Simulate loading
+            setTimeout(() => {
+                loadingIndicator.classList.add('hidden');
+                
+                // Get products from localStorage
+                const products = JSON.parse(localStorage.getItem('bentalaProducts')) || [];
+                
+                if (products.length === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    productContainer.classList.remove('hidden');
+                    displayProducts(products);
+                    
+                    // Set up filter and sort events
+                    categoryFilter.addEventListener('change', filterAndSortProducts);
+                    sortOrder.addEventListener('change', filterAndSortProducts);
+                }
+            }, 1000);
+            
+            function getColorName(hexColor) {
+                const colorMap = {
+                    '#ff0000': 'Merah',
+                    '#0000ff': 'Biru',
+                    '#ffff00': 'Kuning',
+                    '#008000': 'Hijau',
+                    '#ffa500': 'Jingga',
+                    '#800080': 'Ungu',
+                    '#000000': 'Hitam',
+                    '#ffffff': 'Putih'
+                };
+                
+                return colorMap[hexColor.toLowerCase()] || 'Warna Lain';
+            }
+            
+            function filterAndSortProducts() {
+                const category = categoryFilter.value;
+                const sort = sortOrder.value;
+                
+                let products = JSON.parse(localStorage.getItem('bentalaProducts')) || [];
+                
+                // Apply category filter
+                if (category) {
+                    products = products.filter(product => product.gender === category);
+                }
+                
+                // Apply sorting
+                switch(sort) {
+                    case 'newest':
+                        products.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+                        break;
+                    case 'oldest':
+                        products.sort((a, b) => new Date(a.dateAdded) - new Date(b.dateAdded));
+                        break;
+                    case 'priceAsc':
+                        products.sort((a, b) => {
+                            const aPrice = parseFloat(a.harga.replace(/[^\d]/g, ''));
+                            const bPrice = parseFloat(b.harga.replace(/[^\d]/g, ''));
+                            return aPrice - bPrice;
+                        });
+                        break;
+                    case 'priceDesc':
+                        products.sort((a, b) => {
+                            const aPrice = parseFloat(a.harga.replace(/[^\d]/g, ''));
+                            const bPrice = parseFloat(b.harga.replace(/[^\d]/g, ''));
+                            return bPrice - aPrice;
+                        });
+                        break;
+                }
+                
+                displayProducts(products);
+            }
+            
+            function displayProducts(products) {
+                // Clear previous content
+                productContainer.innerHTML = '';
+                
+                // Update product count
+                productCount.textContent = `${products.length} produk`;
+                
+                // Check if any products exist after filtering
+                if (products.length === 0) {
+                    productContainer.innerHTML = `
+                        <div class="col-span-full text-center p-8">
+                            <h3 class="text-xl font-semibold mb-2">Tidak ada produk yang sesuai</h3>
+                            <p class="text-gray-600">Coba ubah filter atau kriteria pencarian Anda.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Display each product
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transform transition duration-300 hover:-translate-y-1 hover:shadow-lg';
+                    
+                    // Format product information
+                    productCard.innerHTML = `
+                        <div class="relative group">
+                            <img src="${product.gambar}" alt="${product.nama}" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <button class="bg-[--hitam] text-white px-4 py-2 rounded-lg transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                                    Lihat Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-[--hitam]">${product.nama}</h3>
+                            <div class="flex justify-between items-center mt-2">
+                                <p class="font-medium text-[--hitam]">${product.harga}</p>
+                                <p class="text-sm text-gray-600">Stok: ${product.total}</p>
+                            </div>
+                            <div class="mt-3 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="inline-block w-4 h-4 rounded-full mr-1" style="background-color: ${product.warna};"></span>
+                                    <span class="text-sm capitalize">${getColorName(product.warna)}</span>
+                                </div>
+                                <span class="text-sm capitalize">${product.gender}</span>
+                            </div>
+                            <button class="w-full mt-4 bg-[--hitam] hover:bg-opacity-80 text-white py-2 rounded-md transition">
+                                Tambah ke Keranjang
+                            </button>
+                        </div>
+                    `;
+                    
+                    productContainer.appendChild(productCard);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

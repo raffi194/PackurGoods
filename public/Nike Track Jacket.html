@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="Width=device-width initial-sccale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+  <link rel="stylesheet" href="css/styleguide.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'>
+  <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet">
+  <link rel="icon" type="png" href="img/Logo pack ur goods.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <title>Pack ur Goods</title>
+  
+</head>
+
+<body>
+    <nav class="fixed top-0 w-full h-14 z-10 bg-[--putih]">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-1">
+                <div class="absolute left-10 top-4 h-16 w-16 space-x-10">
+                    <ul class="sm:flex space-x-10">
+                        <li><a href="koleksi.html" class="text-[--hitam] hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openKoleksi()">Koleksi</a></li>
+                        <li><a class="text-[--hitam]  hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openTentang()">Tentang</a></li>
+                    </ul>
+                    <script>
+                        function openKoleksi() {
+                            window.location.href = 'Koleksi.html';
+                        }
+                        
+                        function openTentang() {
+                            window.location.href = 'About.html';
+                        }
+                    </script>
+                </div>
+                <div class="absolute top-2.5 left-1/2 transform -translate-x-1/2">
+                    <a href="#" id="logo">
+                        <img src="img/Logo pack ur goods.png" alt="BENTALA" class="w-15 h-10">
+                    </a>
+                </div>
+                <div class="absolute top-2.5 right-5">
+                    <form class="space-x-10 flex items-center">
+                        <div class="relative">
+                            <input type="text" placeholder="Search" class="bg-transparent text-[--item] border-2 border-[--hitam] rounded-lg py-1 pl-10 pr-3">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <button class="btn" type="button">
+                            <div onclick="openCart()">
+                                <i class="fa-solid fa-bag-shopping fa-lg" style="color: var(--hitam);"></i>
+                            </div>
+                        </button>
+                        <button class="btn" type="button">
+                            <div onclick="openProfile()">
+                                <i class="fa-regular fa-user fa-lg" style="color: var(--hitam);"></i>
+                            </div>
+                        </button>
+
+                        <script>
+                            function openCart() {
+                                window.location.href = 'Cart.html';
+                            }
+
+                            function openProfile() {
+                                window.location.href = 'Profile.html';
+                            }
+                        </script>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col items-center">
+        <ul class="flex flex-nowrap md:flex-nowrap space-y-10 md:space-y-0 md:space-x-20 mx-4 w-[90%]">
+            <!-- Koleksi Section (Left) -->
+            <li class="flex-1 justify-center">
+                <div class="flex flex-col max-w-screen mt-20">
+                    <div class="w-auto space-x-1">
+                        <div class="mt-3">
+                            <span class="uppercase text-5xl font-bold">Nike Track Jacket</span>
+                        </div>
+                        <div class="mt-3 flex items-start">
+                            <span class="uppercase text-4xl font-bold">Rp 1.013.000</span>
+                            <div class="flex flex-col items-start ml-4 mt-1">
+                                <div class="flex space-x-1">
+                                    <span class="uppercase text-xs font-light"><i class="fa-solid fa-star"></i></span>
+                                    <span class="uppercase text-xs font-light"><i class="fa-solid fa-star"></i></span>
+                                    <span class="uppercase text-xs font-light"><i class="fa-solid fa-star"></i></span>
+                                    <span class="uppercase text-xs font-light"><i class="fa-solid fa-star"></i></span>
+                                    <span class="uppercase text-xs font-light"><i
+                                            class="fa-solid fa-star-half-stroke"></i></span>
+                                </div>
+                                <span class="text-sm font-medium mt-1">4.3 stars • 10 reviews</span>
+                            </div>
+                        </div>
+                        <div class="my-2 space-x-5">
+                            <span id="detail" class="text-lg cursor-pointer hover:underline"
+                                onclick="showDetail()">Detail</span>
+                        </div>
+
+                        <div id="detailContent" class="my-5 visible">
+                            <span class="text-lg">Jaket track Nike berukuran kecil ini terbuat dari bahan nylon ringan dan tahan angin, cocok untuk aktivitas olahraga maupun gaya kasual. Warna hitam klasik dengan desain minimalis memberikan tampilan sporty dan stylish. Dilengkapi resleting depan penuh dan kantong samping, jaket ini nyaman dan fungsional untuk penggunaan sehari-hari.</span>
+                        </div>
+
+                        <div id="carbonFootprint" class="my-5 pr-14 hidden">
+                            <span class="text-lg" id="carbonText">Produk ini memiliki jejak karbon sebesar 15Kg
+                                CO2</span>
+                        </div>
+
+                        <script>
+                            function showDetail() {
+                                document.getElementById('carbonFootprint').classList.add('hidden');
+                                document.getElementById('detailContent').classList.remove('hidden');
+                            }
+
+                            function showJejakKarbon() {
+                                document.getElementById('detailContent').classList.add('hidden');
+                                document.getElementById('carbonFootprint').classList.remove('hidden');
+                            }
+                        </script>
+
+
+                    </div>
+                </div>
+            </li>
+            <!-- Product Image Section (Center) -->
+            <li class="flex-1 flex justify-center">
+                <div class="mt-20 flex flex-col items-center justify-center">
+                    <img src="img/Item 1.png" alt="Product 9"
+                        class="w-full h-80 object-cover border-2 border-[--hitam] rounded-lg cursor-pointer">
+
+                    <div class="flex justify-center mt-5 space-x-1 h-36">
+                        <img src="img/Item 11.png" alt="Product 1"
+                            class="w-32 h-20 object-cover border-2 border-[--hitam] rounded-lg cursor-pointer">
+                        <img src="img/Item 12.png" alt="Product 2"
+                            class="w-32 h-20 object-cover border-2 border-[--hitam] rounded-lg cursor-pointer">
+                        <img src="img/Item 13.png" alt="Product 3"
+                            class="w-32 h-20 object-cover border-2 border-[--hitam] rounded-lg cursor-pointer">
+                    </div>
+                </div>
+            </li>
+            <!-- Ukuran Section (Right) -->
+            <li class="flex-1 flex justify-center">
+                <div class="mt-20">
+                    <div>
+                        <div class="flex items-center justify-between cursor-pointer">
+                            <h2 class="text-lg font-medium">Ukuran</h2>
+                        </div>
+                        <div class="flex mt-2">
+                            <ul class="flex flex-nowrap">
+                                <li>
+                                    <div class="ukuranlist flex space-x-4">
+                                        <div class="ukuran-list">
+                                            <div class="ukuran-card bg-transparent border-2 border-[--hitam] p-2 px-4 rounded-xl text-center cursor-pointer"
+                                                onclick="selectSize(this)">
+                                                <span class="font-semibold">S</span>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="ukuran-list">
+                                            <div class="ukuran-card bg-transparent border-2 border-[--hitam] p-2 px-3 rounded-xl text-center cursor-pointer"
+                                                onclick="selectSize(this)">
+                                                <span class="font-semibold">M</span>
+                                            </div>
+                                        </div>
+                                        <div class="ukuran-list">
+                                            <div class="ukuran-card bg-transparent border-2 border-[--hitam] p-2 px-4 rounded-xl text-center cursor-pointer"
+                                                onclick="selectSize(this)">
+                                                <span class="font-semibold">L</span>
+                                            </div>
+                                        </div>
+                                        <div class="ukuran-list">
+                                            <div class="ukuran-card bg-transparent border-2 border-[--hitam] p-2 px-3 rounded-xl text-center cursor-pointer"
+                                                onclick="selectSize(this)">
+                                                <span class="font-semibold">XL</span>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </li>
+                                <!-- <li>
+                                    <div class="ml-8 relative bottom-7">
+                                        <span class="block font-semibold mb-1">Stock</span>
+                                        <div
+                                            class="py-2 p-2 border-2 border-[--hitam] rounded-xl w-14 text-center flex items-center justify-center">
+                                            <span class="font-semibold">1</span>
+                                        </div>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <script>
+                        function selectSize(element) {
+                            const sizeCards = document.querySelectorAll('.ukuran-card');
+                            const isSelected = element.classList.contains('bg-[--hitam]');
+
+                            sizeCards.forEach(card => {
+                                card.classList.remove('bg-[--hitam]');
+                                card.classList.remove('text-[--putih]');
+                                card.classList.add('bg-transparent');
+                                card.classList.add('border-[--hitam]');
+                            });
+
+                            if (!isSelected) {
+                                element.classList.remove('bg-transparent');
+                                element.classList.add('bg-[--hitam]');
+                                element.classList.add('text-[--putih]');
+                                element.classList.remove('border-[--hitam]');
+                            }
+                        }
+                    </script>
+
+
+                    <div class="w-full mt-8">
+                        <!-- <div class="flex items-center justify-between cursor-pointer">
+                            <h2 class="text-lg font-medium">Warna</h2>
+                        </div>
+
+                        <div class="mt-2 flex items-start space-x-4 relative">
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[--putih] relative cursor-pointer pilihwarna"
+                                onclick="toggleSelect(this)">
+                                <div class="absolute inset-0 rounded-full bg-[--ijocap]"></div>
+                            </div>
+                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-[--putih] relative cursor-pointer pilihwarna"
+                                onclick="toggleSelect(this)">
+                                <div class="absolute inset-0 rounded-full bg-[--orange]"></div>
+                            </div>
+
+                            <script>
+                                function toggleSelect(element) {
+                                    const sizeCards = document.querySelectorAll('.pilihwarna');
+
+                                    const isSelected = element.classList.contains('border-[--hitam]');
+
+                                    if (isSelected) {
+                                        element.classList.remove('border-[--hitam]');
+                                        element.classList.add('border-[--putih]');
+                                    } else {
+                                        sizeCards.forEach(card => {
+                                            card.classList.remove('border-[--hitam]');
+                                            card.classList.add('border-[--putih]');
+                                        });
+
+                                        element.classList.remove('border-[--putih]');
+                                        element.classList.add('border-[--hitam]');
+                                    }
+                                }
+                            </script>
+
+                            <div class="flex flex-col items-start absolute bottom-0 left-60">
+                                <span class="font-semibold mb-2">Qty</span>
+                                <div
+                                    class="py-2 p-2 border-2 border-[--hitam] rounded-xl w-14 text-center flex items-center justify-center]">
+                                    <input type="number" min="1" value="1"
+                                        class="font-semibold text-center w-full bg-transparent border-none outline-none" />
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="mt-8 space-y-2 w-full">
+                            <!-- <div class="flex flex-nowrap cursor-pointer" onclick="openCustomize()">
+                                <span
+                                    class="w-full py-2 bg-transparent text-[--hitam] border-2 border-[--hitam] no-underline rounded-xl text-center font-semibold hover:bg-[--hitamkurang]">Customize</span>
+                            </div> -->
+
+                            <div class="flex flex-nowrap cursor-pointer" onclick="openCart2()">
+                                <span
+                                    class="w-full py-2 bg-[--hitam] text-[--putih] border-2 border-[--hitam] no-underline rounded-xl text-center">Add
+                                    To Cart</span>
+                            </div>
+
+                            <div class="flex flex-nowrap cursor-pointer">
+                                <a href="#"
+                                    class="w-full py-2 bg-[--ijo] text-[--putih] border-2 border-[--hitam] no-underline rounded-xl text-center">Buy
+                                    Now</a>
+                            </div>
+
+                            <div class="flex justify-center mt-2">
+                                <span class="text-nowrap text-center">Free shipping over Rp150.000</span>
+                            </div>
+
+                            <script>
+                                function openCart2() {
+                                    window.location.href = 'Cart2.html';
+                                }
+
+                                function openCustomize() {
+                                    window.location.href = 'Customize.html';
+                                }
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content mx-auto">
+        <div class="relative">
+            <div class="">
+                <span class="text-3xl font-bold text-[--hitam] flex justify-center mb-5">REKOMENDASI PRODUK</span>
+            </div>
+            <div class="slider overflow-hidden">
+                <div class="slide hidden" id="slide1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-2/3 mx-auto">
+                        <!-- Card 1 -->
+                        <div class="relative">
+                            <a href="#">
+                                <div
+                                    class="bg-[--putih] rounded-lg shadow-lg overflow-hidden border-2 border-[--hitam]">
+                                    <div class="relative group">
+                                        <img src="img/card01.png" alt="Product 9"
+                                            class="w-full h-96 object-cover shadow-lg transition-shadow duration-300 hover:shadow-none">
+                                        <div
+                                            class="absolute inset-0 bg-[--hitam] opacity-30 transition-opacity duration-300 group-hover:opacity-0">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 flex items-center bg-[--putih] border border-[--hitam] rounded-2xl px-2 py-1">
+                                        <i class="fa-regular fa-star text-[--hitam]"></i>
+                                        <span class="ml-1 text-xs font-bold text-[--hitam]">4.3/5</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col p-4">
+                                    <h2 class="text-lg font-bold">UNIQLO</h2>
+                                    <p class="text-[--hitam] font-semibold">Blouson Jacket Short Utility</p>
+                                    <div class="flex justify-between items-center w-full mt-2">
+                                        <span class="text-xl font-bold">Rp999.000</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="relative">
+                                <i id="heart-icon" class="fa-regular fa-heart fa-xl absolute bottom-17 right-0"
+                                    style="color: var(--hitam); cursor: pointer;" onclick="toggleHeart(this)"></i>
+                            </div>
+
+                            <script>
+                                function toggleHeart(element) {
+                                    if (element.classList.contains('fa-regular')) {
+                                        element.classList.remove('fa-regular');
+                                        element.classList.add('fa-solid');
+                                        element.style.color = '#e81756';
+                                    } else {
+                                        element.classList.remove('fa-solid');
+                                        element.classList.add('fa-regular');
+                                        element.style.color = 'var(--hitam)';
+                                    }
+                                }
+                            </script>
+
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="relative">
+                            <a href="#">
+                                <div
+                                    class="bg-[--putih] rounded-lg shadow-lg overflow-hidden border-2 border-[--hitam]">
+                                    <div class="relative group">
+                                        <img src="img/card02.png" alt="Product 9"
+                                            class="w-full h-96 object-cover shadow-lg transition-shadow duration-300 hover:shadow-none">
+                                        <!-- Menghilangkan bayangan saat di-hover -->
+                                        <div
+                                            class="absolute inset-0 bg-[--hitam] opacity-30 transition-opacity duration-300 group-hover:opacity-0">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 flex items-center bg-[--putih] border border-[--hitam] rounded-2xl px-2 py-1">
+                                        <i class="fa-regular fa-star text-[--hitam]"></i>
+                                        <span class="ml-1 text-xs font-bold text-[--hitam]">4.5/5</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col p-4">
+                                    <h2 class="text-lg font-bold">Pijakbumi</h2>
+                                    <p class="text-[--hitam] font-semibold">Bumisocks Signature Mid-Quarter Socks
+                                    </p>
+                                    <div class="flex justify-between items-center w-full mt-2">
+                                        <span class="text-xl font-bold">Rp169.000</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="relative">
+                                <i id="heart-icon" class="fa-regular fa-heart fa-xl absolute bottom-17 right-0"
+                                    style="color: var(--hitam); cursor: pointer;" onclick="toggleHeart(this)"></i>
+                            </div>
+
+                            <script>
+                                function toggleHeart(element) {
+                                    if (element.classList.contains('fa-regular')) {
+                                        element.classList.remove('fa-regular');
+                                        element.classList.add('fa-solid');
+                                        element.style.color = '#e81756';
+                                    } else {
+                                        element.classList.remove('fa-solid');
+                                        element.classList.add('fa-regular');
+                                        element.style.color = 'var(--hitam)';
+                                    }
+                                }
+                            </script>
+
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="relative">
+                            <a href="#">
+                                <div
+                                    class="bg-[--putih] rounded-lg shadow-lg overflow-hidden border-2 border-[--hitam]">
+                                    <div class="relative group">
+                                        <img src="img/card03.png" alt="Product 9"
+                                            class="w-full h-96 object-cover shadow-lg transition-shadow duration-300 hover:shadow-none">
+                                        <!-- Menghilangkan bayangan saat di-hover -->
+                                        <div
+                                            class="absolute inset-0 bg-[--hitam] opacity-30 transition-opacity duration-300 group-hover:opacity-0">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 left-2 flex items-center bg-[--putih] border border-[--hitam] rounded-2xl px-2 py-1">
+                                        <i class="fa-regular fa-star text-[--hitam]"></i>
+                                        <span class="ml-1 text-xs font-bold text-[--hitam]">4.1/5</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col p-4">
+                                    <h2 class="text-lg font-bold">UNIQLO</h2>
+                                    <p class="text-[--hitam] font-semibold">Flannel Shirt Long-Sleeve</p>
+                                    <div class="flex justify-between items-center w-full mt-2">
+                                        <span class="text-xl font-bold">Rp255.000</span>
+                                    </div>
+                            </a>
+                            <div class="relative">
+                                <i id="heart-icon" class="fa-regular fa-heart fa-xl absolute bottom-17 right-0"
+                                    style="color: var(--hitam); cursor: pointer;" onclick="toggleHeart(this)"></i>
+                            </div>
+
+                            <script>
+                                function toggleHeart(element) {
+                                    if (element.classList.contains('fa-regular')) {
+                                        element.classList.remove('fa-regular');
+                                        element.classList.add('fa-solid');
+                                        element.style.color = '#e81756';
+                                    } else {
+                                        element.classList.remove('fa-solid');
+                                        element.classList.add('fa-regular');
+                                        element.style.color = 'var(--hitam)';
+                                    }
+                                }
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide hidden" id="slide2">
+                <div class="bg-gray-200 p-6 rounded-lg text-center">
+                    <h2 class="text-2xl font-bold">Slide 2</h2>
+                    <p>Konten untuk slide kedua.</p>
+                </div>
+            </div>
+
+            <div class="slide hidden" id="slide3">
+                <div class="bg-gray-200 p-6 rounded-lg text-center">
+                    <h2 class="text-2xl font-bold">Slide 3</h2>
+                    <p>Konten untuk slide ketiga.</p>
+                </div>
+            </div>
+
+            <div class="slide hidden" id="slide4">
+                <div class="bg-gray-200 p-6 rounded-lg text-center">
+                    <h2 class="text-2xl font-bold">Slide 4</h2>
+                    <p>Konten untuk slide keempat.</p>
+                </div>
+            </div>
+
+            <div class="slide hidden" id="slide5">
+                <div class="bg-gray-200 p-6 rounded-lg text-center">
+                    <h2 class="text-2xl font-bold">Slide 5</h2>
+                    <p>Konten untuk slide kelima.</p>
+                </div>
+            </div>
+            <div class="flex justify-center items-center mt-4 space-x-96 my-10">
+                <div class="slider-dots flex space-x-2">
+                    <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="currentSlide(1)">
+                    </div>
+                    <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="currentSlide(2)">
+                    </div>
+                    <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="currentSlide(3)">
+                    </div>
+                    <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="currentSlide(4)">
+                    </div>
+                    <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="currentSlide(5)">
+                    </div>
+                </div>
+                <div class="slider-buttons flex space-x-4">
+                    <div class="buttonpag cursor-pointer flex items-center justify-center w-10 h-10 border-2 border-[--hitam] rounded-full hover:bg-gray-200 transition duration-300"
+                        onclick="plusSlides(-1)">
+                        <i class="icon fa-solid fa-arrow-left" style="color: var(--hitam);"></i>
+                    </div>
+                    <div class="buttonpag cursor-pointer flex items-center justify-center w-10 h-10 border-2 border-[--hitam] rounded-full hover:bg-gray-200 transition duration-300"
+                        onclick="plusSlides(1)">
+                        <i class="icon fa-solid fa-arrow-right" style="color: var(--hitam);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            slides.forEach((slide, index) => {
+                slide.classList.add('hidden');
+                if (index + 1 === slideIndex) {
+                    slide.classList.remove('hidden');
+                }
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.remove('bg-gray-700');
+                if (index + 1 === slideIndex) {
+                    dot.classList.add('bg-gray-700');
+                } else {
+                    dot.classList.add('bg-gray-400');
+                }
+            });
+        }
+    </script>
+
+
+    <footer class="bg-[--hitam] text-[--putih] py-8">
+    <div class="mx-auto px-4">
+               <div class="relative">
+                   <div class="logo mb-4 md:mb-0 absolute left-0">
+                       <img class="company-logo-icon h-10" alt="Logo" src="img/Logo pack ur goods.png">
+                   </div>
+               </div>
+               <div class="flex md:flex-row justify-center items-center">
+                   <div class="flex flex-row space-x-14 mb-4 md:mb-0">
+                       <a href="#" class="hover:underline">Koleksi</a>
+                       <a href="#" class="hover:underline">FAQ</a>
+                       <a href="#" class="hover:underline">Customer Service</a>
+                       <a href="#" class="hover:underline">Pengembalian</a>
+                       <a href="#" class="hover:underline">Shipping Policy</a>
+                   </div>
+               </div>
+               <div class="relative">
+                   <div class="social-links flex space-x-4 absolute right-0 ">
+                       <i class="fa-brands fa-facebook fa-lg cursor-pointer" onclick="openVideo()"></i>
+                       <i class="fa-brands fa-instagram fa-lg cursor-pointer" onclick="openInstagram()"></i>
+                       <i class="fa-brands fa-twitter fa-lg cursor-pointer" onclick="openX()"></i>
+                       <i class="fa-brands fa-linkedin fa-lg cursor-pointer" onclick="openlinkedin()"></i>
+                       <i class="fa-brands fa-youtube fa-lg cursor-pointer" onclick="openyt()"></i>
+                   </div>
+                   <script>
+                       const logo = document.getElementById('logo');
+                       logo.addEventListener('click', function() {
+                           window.location.href = 'index.html'; 
+                       });
+               
+                       function openInstagram() {
+                           window.open('https://www.instagram.com/raffi1__/', '_blank');
+                       }
+               
+                       function openX() {
+                           window.open('https://x.com/Raffi1__', '_blank');
+                       }
+               
+                       function openlinkedin() {
+                           window.open('https://www.linkedin.com/in/muhamadraffi/', '_blank');
+                       }
+               
+                       function openyt() {
+                           window.open('https://www.instagram.com/raffi1__/', '_blank');
+                       }
+               
+                       function openVideo() {
+                           const videoPopup = document.getElementById('videoPopup');
+                           const myVideo = document.getElementById('myVideo');
+                           videoPopup.style.display = 'flex'; 
+                           myVideo.play(); 
+                       }
+               
+                       function answer(response) {
+                           const videoPopup = document.getElementById('videoPopup');
+                           videoPopup.style.display = 'none'; 
+                           const myVideo = document.getElementById('myVideo');
+                           myVideo.pause(); 
+                           myVideo.currentTime = 0; 
+                       }
+                   </script>
+               </div>
+               <div class="credits mt-8">
+                   <div class="divider border-t border-gray-600 mb-4"></div>
+                   <div class="flex flex-col md:flex-row justify-center items-center">
+                       <div class="flex space-x-4 text-sm mt-2 md:mt-0">
+                           <div class="text-sm">© 2024 Relume. All rights reserved.</div>
+                           <a href="#" class="hover:underline">Privacy Policy</a>
+                           <a href="#" class="hover:underline">Terms of Service</a>
+                           <a href="#" class="hover:underline">Cookies Settings</a>
+                       </div>
+                   </div>
+               </div>
+</footer>
+
+    <div id="videoPopup" class="fixed inset-0 items-center justify-center hidden">
+        <div id="videoContent" class="relative w-screen h-screen flex items-center justify-center">
+            <video id="myVideo" class="w-full h-full object-cover" loop>
+                <source src="img/You are an idiot!! - Zuhuk (480p, h264, youtube).mp4" type="video/mp4">
+            </video>
+            <div id="question"
+                class="absolute bottom-10 left-1/2 text-[--putih] rounded-lg transition-all duration-300 inline-flex flex-col items-center">
+                <p class="text-lg font-semibold text-center">Raffi ganteng? Yes or No</p>
+                <div class="flex justify-center mt-4 space-x-4">
+                    <button id="yesButton"
+                        class="bg-[--hitam] text-[--putih] px-4 py-2 rounded transition duration-200">Yes</button>
+                    <button id="noButton"
+                        class="bg-[--hitam] text-[--putih] px-4 py-2 rounded transition duration-200">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function moveQuestion() {
+            const question = document.getElementById('question');
+            const videoContent = document.getElementById('videoContent');
+
+            if (!question || !videoContent) return;
+
+            const containerWidth = videoContent.clientWidth;
+            const containerHeight = videoContent.clientHeight;
+
+            const questionWidth = question.offsetWidth;
+            const questionHeight = question.offsetHeight;
+
+            const randomX = Math.max(0, Math.min(containerWidth - questionWidth, Math.random() * containerWidth));
+            const randomY = Math.max(0, Math.min(containerHeight - questionHeight, Math.random() * containerHeight));
+
+            question.style.left = `${randomX}px`;
+            question.style.top = `${randomY}px`;
+            question.style.transform = 'translate(0, 0)';
+        }
+
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+
+        noButton.addEventListener('mouseenter', () => {
+            moveQuestion();
+        });
+
+        yesButton.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js'></script>
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js'></script>
+    <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'></script>
+    <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
+    <script src="https:// cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

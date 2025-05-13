@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo bentala putih.png">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/style.css">    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>BENTALA - Cart</title>
+    <style>
+        :root {
+            --hitam: #000000;
+            --putih: #FFFFFF;
+            --ijo: #22BD63;
+            --hoverijo: #20A858;
+        }
+        
+        .dropdown {
+            display: none;
+        }
+        .dropdown-open {
+            display: block;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .btn-effect:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease;
+        }
+        
+        .btn-effect:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <nav class="fixed top-0 w-full h-14 z-10 bg-[--putih]">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-1">
+                <div class="absolute left-10 top-4 h-16 w-16 space-x-10">
+                    <ul class="sm:flex space-x-10">
+                        <li><a href="koleksi.html" class="text-[--hitam] hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openKoleksi()">Koleksi</a></li>
+                        <li><a href="hasilproduk.html" class="text-[--hitam] hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openHasilProduk()">Toko</a></li>
+                        <li><a class="text-[--hitam]  hover:bg-[--hitam] hover:text-[--putih] px-3 py-2 rounded no-underline cursor-pointer" onclick="openTentang()">Tentang</a></li>
+                    </ul>
+                    <script>
+                        function openKoleksi() {
+                            window.location.href = 'Koleksi.html';
+                        }
+
+                         function openHasilProduk() {
+                            window.location.href = 'HasilProduk.html';
+                        }
+                        
+                        function openTentang() {
+                            window.location.href = 'About.html';
+                        }
+                    </script>
+                </div>
+                <div class="absolute top-2.5 left-1/2 transform -translate-x-1/2">
+                    <a href="#" id="logo">
+                        <img src="img/Logo pack ur goods.png" alt="BENTALA" class="w-15 h-10">
+                    </a>
+                </div>
+                <div class="absolute top-2.5 right-5">
+                    <form class="space-x-10 flex items-center">
+                        <div class="relative">
+                            <input type="text" placeholder="Search" class="bg-transparent text-[--item] border-2 border-[--hitam] rounded-lg py-1 pl-10 pr-3">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <button class="btn" type="button">
+                            <div onclick="openCart()">
+                                <i class="fa-solid fa-bag-shopping fa-lg" style="color: var(--hitam);"></i>
+                            </div>
+                        </button>
+                        <button class="btn" type="button">
+                            <div onclick="openProfile()">
+                                <i class="fa-regular fa-user fa-lg" style="color: var(--hitam);"></i>
+                            </div>
+                        </button>
+
+                        <script>
+                            function openCart() {
+                                window.location.href = 'Cart.html';
+                            }
+
+                            function openProfile() {
+                                window.location.href = 'Profile.html';
+                            }
+                        </script>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="flex-grow space-y-10 mt-20">
+
+        <div class="flex flex-col items-center w-full px-10 pb-32">
+            <ul class="flex flex-nowrap my-10 space-x-10 w-full">
+                <li class="justify-center space-y-5 w-[60%]"> 
+                    <div class="rectangle rounded-2xl border-2 border-[--hitam] w-full h-32">
+                        <div class="flex h-full w-full overflow-hidden">
+                            <ul class="flex flex-nowrap items-center space-x-5 mx-2 h-full text-[--hitam] w-full"> 
+                                <li class="flex items-center h-full"> 
+                                    <img src="img/Card01 (2).png" alt="" class="h-28 rounded-lg">                                
+                                </li>
+                                <li class="flex items-center h-full flex-grow"> 
+                                    <div>
+                                        <ul class="space-y-1">
+                                            <li>
+                                                <span class="text-3xl font-bold">Nike Track Jacket</span>
+                                            </li>
+                                            <li class="font-medium">
+                                                <span>Size :</span>
+                                                <span>L</span>
+                                            </li>
+                                            <li class="font-medium">
+                                                <div class="rectangle bg-transparent border-2 border-[--hitam] h-10 rounded-lg flex items-center justify-between px-2">
+                                                    <span class="">Jumlah :</span>
+                                                    <input type="number" id="productQuantity" min="1" value="1" class="font-semibold text-start w-16 bg-transparent border-none outline-none"/> 
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="flex items-center h-full"> 
+                                    <div class="flex flex-col items-end space-y-10">
+                                        <div class="flex justify-end">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div>
+                                        <span class="font-bold text-4xl">Rp1.013.000</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="rectangle rounded-2xl bg-blue-500 h-32 border-2 border-[--hitam] hidden"></div>
+                    <div class="rectangle rounded-2xl bg-blue-500 h-32 border-2 border-[--hitam] hidden"></div>
+                    <div class="rectangle rounded-2xl bg-blue-500 h-32 border-2 border-[--hitam] hidden"></div>
+                    <div class="rectangle2 rounded-2xl h-20 border-2 border-[--hitam] mb-2" id="rectangle1">
+                        <div class="flex h-full w-full overflow-hidden">
+                            <ul class="flex flex-nowrap items-center space-x-5 mx-2 h-full text-[--hitam] w-full"> 
+                                <li class="flex items-center h-full"> 
+                                    <i class="fa-solid fa-location-dot fa-2xl" style="color: black;"></i>
+                                </li>
+                                <li class="flex items-center h-full flex-grow"> 
+                                    <div>
+                                        <span class="text-2xl font-bold text-[--hitam]">Lokasi Pengiriman</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center h-full"> 
+                                    <div class="flex flex-col items-end">
+                                        <i class="fa-solid fa-angle-down fa-2xl cursor-pointer" style="color: black;" onclick="toggleDropdown('dropdown1', 'rectangle1', this)"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="dropdown1" class="dropdown border-2 border-[--hitam] bg-transparent p-2 rounded-lg">
+                            <div class="flex">
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">Informasi pribadi</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">Nama Lengkap</span>
+                                    <input type="text" id="fullName" class="mt-2 p-1 rounded mx-1 w-full border-b-2 border-[--hitam] focus:outline-none focus:border-[--hitam]" placeholder="Nama Lengkap">                                
+                                </div>
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">No Telepon</span>
+                                    <input type="text" id="phoneNumber" class="mt-2 p-1 rounded mx-1 w-full border-b-2 border-[--hitam] focus:outline-none focus:border-[--hitam]" placeholder="No Telepon">
+                                </div>
+                            </div>
+                            <div class="flex mt-3">
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">Detail Pengiriman</span>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">Alamat</span>
+                                <input type="text" id="address" class="mt-2 p-1 rounded mx-1 w-full border-b-2 border-[--hitam] focus:outline-none focus:border-[--hitam]" placeholder="Jl. Veteran, Ketawanggede, Kec. Lowokwaru, Kota Malang, Jawa Timur">
+                                </div>
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">Informasi Lebih Detail (Optional)</span>
+                                    <input type="text" id="addressDetail" class="mt-2 p-1 rounded mx-1 w-full border-b-2 border-[--hitam] focus:outline-none focus:border-[--hitam]" placeholder="Edutech">
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">Negara</span>
+                                    <input type="text" id="country" class="mt-2 p-1 rounded mx-1 w-full border-b-2 border-[--hitam] focus:outline-none focus:border-[--hitam]" placeholder="Indonesia">
+                                </div>
+                                <div class="w-1/2 p-2">
+                                    <span class="block font-bold text-xl">Kode Pos</span>
+                                    <input type="text" id="postalCode" class="mt-2 p-1 rounded mx-1 w-full border-b-2 border-[--hitam] focus:outline-none focus:border-[--hitam]" placeholder="65113">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rectangle2 rounded-2xl h-20 border-2 border-[--hitam] mb-2" id="rectangle2">
+                        <div class="flex h-full w-full overflow-hidden">
+                            <ul class="flex flex-nowrap items-center space-x-5 mx-2 h-full text-[--hitam] w-full"> 
+                                <li class="flex items-center h-full"> 
+                                    <i class="fa-solid fa-truck-fast fa-lg" style="color: black;"></i>
+                                </li>
+                                <li class="flex items-center h-full flex-grow"> 
+                                    <div>
+                                        <span class="text-2xl font-bold text-[--hitam]">Metode Pengiriman</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center h-full"> 
+                                    <div class="flex flex-col items-end">
+                                        <i class="fa-solid fa-angle-down fa-2xl cursor-pointer" style="color: black;" onclick="toggleDropdown('dropdown2', 'rectangle2', this)"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="dropdown2" class="dropdown border-2 border-[--hitam] bg-transparent p-2 rounded-lg">
+                            <div class="flex">
+                                <div class="w-1/2 p-2 flex items-center">
+                                    <input type="radio" id="shippingStandard" name="shipping" class="mr-2 square-radio appearance-none w-5 h-5 border-2 border-[--hitam] rounded-none cursor-pointer checked:bg-[--hitam] checked:border-transparent"/>                                    
+                                    <div>
+                                        <span class="block font-bold text-xl">Standard Shipping</span>
+                                        <span class="block font-medium text-sm">Pengiriman reguler</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-1/2 p-2 flex items-center">
+                                    <input type="radio" id="shippingExpress" name="shipping" class="mr-2 square-radio appearance-none w-5 h-5 border-2 border-[--hitam] rounded-none cursor-pointer checked:bg-[--hitam] checked:border-transparent"/>                                    
+                                    <div>
+                                        <span class="block font-bold text-xl">Express Shipping</span>
+                                        <span class="block font-medium text-sm">Pengiriman cepat yang menggunakan rute khusus</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rectangle2 rounded-2xl h-20 border-2 border-[--hitam] mb-2" id="rectangle3">
+                        <div class="flex h-full w-full overflow-hidden">
+                            <ul class="flex flex-nowrap items-center space-x-5 mx-2 h-full text-[--hitam] w-full"> 
+                                <li class="flex items-center h-full"> 
+                                    <i class="fa-solid fa-credit-card fa-lg" style="color : black;"></i>
+                                </li>
+                                <li class="flex items-center h-full flex-grow"> 
+                                    <div>
+                                        <span class="text-2xl font-bold text-[--hitam]">Detail Pembayaran</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center h-full"> 
+                                    <div class="flex flex-col items-end">
+                                        <i class="fa-solid fa-angle-down fa-2xl cursor-pointer" style="color: black;" onclick="toggleDropdown('dropdown3', 'rectangle3', this)"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="dropdown3" class="dropdown border-2 border-[--hitam] bg-transparent p-2 rounded-lg">
+                        <!-- BCA -->
+                        <div class="flex-grow">
+                            <div class="p-2 items-center flex h-full w-full">
+                                <ul class="flex flex-nowrap items-center space-x-5 mx-2 h-full text-[--hitam] w-full"> 
+                                    <li class="flex items-center h-full"> 
+                                        <img src="img/Logo_bca.png" class="w-32 h-auto" alt="Logo BCA">
+                                    </li>
+                                    <li class="flex items-center h-full flex-grow"> 
+                                        <div>
+                                            <span class="text-2xl font-bold text-[--hitam]">BCA</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-center h-full"> 
+                                        <div class="flex flex-col items-end">
+                                            <input type="radio" id="bankBCA" name="bank" class="square-radio appearance-none w-5 h-5 border-2 border-[--hitam] rounded-none cursor-pointer checked:bg-[--hitam] checked:border-transparent"/>                                    
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Mandiri -->
+                        <div class="flex">
+                            <div class="p-2 items-center flex h-full w-full">
+                                <ul class="flex flex-nowrap items-center space-x-5 mx-2 h-full text-[--hitam] w-full"> 
+                                    <li class="flex items-center h-full"> 
+                                        <img src="img/Logo_Mandiri.png" class="w-32 h-auto" alt="Logo Bank Mandiri">
+                                    </li>
+                                    <li class="flex items-center h-full flex-grow"> 
+                                        <div>
+                                            <span class="text-2xl font-bold text-[--hitam]">Mandiri</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-center h-full"> 
+                                        <div class="flex flex-col items-end">
+                                            <input type="radio" id="bankMandiri" name="bank" class="square-radio appearance-none w-5 h-5 border-2 border-[--hitam] rounded-none cursor-pointer checked:bg-[--hitam] checked:border-transparent"/>                                    
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Jago -->
+                        <div class="flex">
+                            <div class="p-2 items-center flex h-full w-full">
+                                <ul class="flex flex-nowrap items-center space-x-5 mx-2 h-full text-[--hitam] w-full"> 
+                                    <li class="flex items-center h-full"> 
+                                        <img src="img/Logo_Jago.png" class="w-32 h-auto" alt="Logo Bank Jago">
+                                    </li>
+                                    <li class="flex items-center h-full flex-grow"> 
+                                        <div>
+                                            <span class="text-2xl font-bold text-[--hitam]">Jago</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-center h-full"> 
+                                        <div class="flex flex-col items-end">
+                                            <input type="radio" id="bankJago" name="bank" class="square-radio appearance-none w-5 h-5 border-2 border-[--hitam] rounded-none cursor-pointer checked:bg-[--hitam] checked:border-transparent"/>                                    
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    
+                    <script>
+                        function toggleDropdown(dropdownId, rectangleId, iconElement) {
+                            const dropdown = document.getElementById(dropdownId);
+                            const isOpen = dropdown.classList.contains('hidden');
+                    
+                            if (isOpen) {
+                                dropdown.classList.remove('hidden');
+                                iconElement.classList.remove('fa-angle-down');
+                                iconElement.classList.add('fa-angle-up');
+                            } else {
+                                dropdown.classList.add('hidden');
+                                iconElement.classList.remove('fa-angle-up');
+                                iconElement.classList.add('fa-angle-down');
+                            }
+                        }
+
+                        function toggleInput(inputId) {
+                            const inputElement = document.getElementById(inputId);
+                            if (inputElement.classList.contains('hidden')) {
+                                inputElement.classList.remove('hidden'); 
+                            } else {
+                                inputElement.classList.add('hidden'); 
+                            }
+                        }
+
+                        function toggleDropdown(dropdownId, rectangleId, iconElement) {
+                            const dropdown = document.getElementById(dropdownId);
+                            const isOpen = dropdown.classList.contains('dropdown-open');
+                    
+                            const initialMargins = {
+                                'rectangle1': '20px',
+                                'rectangle2': '20px',
+                                'rectangle3': '20px'
+                            };
+                    
+                            if (isOpen) {
+                                dropdown.classList.remove('dropdown-open');
+                    
+                                const rectangles = ['rectangle1', 'rectangle2', 'rectangle3'];
+                                rectangles.forEach(id => {
+                                    document.getElementById(id).style.marginTop = initialMargins[id]; 
+                                });
+                    
+                                iconElement.classList.remove('fa-angle-up');
+                                iconElement.classList.add('fa-angle-down');
+                            } else {
+                                const rectangles = ['rectangle1', 'rectangle2', 'rectangle3'];
+                                rectangles.forEach(id => {
+                                    document.getElementById(id).style.marginTop = initialMargins[id]; 
+                                    document.getElementById(id).querySelector('.dropdown').classList.remove('dropdown-open');
+                                });
+                    
+                                dropdown.classList.add('dropdown-open');
+                    
+                                if (rectangleId === 'rectangle1') {
+                                    document.getElementById('rectangle2').style.marginTop = '390px'; 
+                                } else if (rectangleId === 'rectangle2') {
+                                    document.getElementById('rectangle3').style.marginTop = '170px';
+                                }
+                    
+                                iconElement.classList.remove('fa-angle-down');
+                                iconElement.classList.add('fa-angle-up');
+                            }
+                        }
+                    </script>
+                </li>
+                <li class="justify-center space-y-5 w-[40%] relative">
+                    <div class="rectangle rounded-2xl h-fit border-2 border-[--hitam]">
+                        <div>
+                            <div class="flex w-full">
+                                <ul class="flex flex-nowrap space-x-5 mx-5 h-auto text-[--hitam] w-full justify-start pt-5 border-b-2 border-[--hitam] py-5"> 
+                                    <li class="flex items-start"> 
+                                        <div>
+                                            <span class="text-2xl font-bold text-[--hitam]">Subtotal</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex flex-grow"> 
+                                        <div>
+                                            <span class="text-2xl font-bold text-[--hitam]">(1 Produk)</span>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-end"> 
+                                        <div class="flex flex-col items-end">
+                                            <span class="text-2xl font-bold text-[--hitam]">Rp1.013.000</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <div class="flex w-full overflow-hidden">
+                                    <ul class="flex flex-nowrap space-x-5 mx-5 h-auto text-[--hitam] w-full justify-start border-b-2 border-[--hitam] py-5"> 
+                                        <li class="flex items-start h-full flex-grow"> 
+                                            <div>
+                                                <span class="text-2xl font-bold text-[--hitam]">Pengiriman</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-end h-full"> 
+                                            <div class="flex flex-col items-end">
+                                                <span id="randomPriceSpan" class="text-2xl font-bold text-[--hitam]">Rp0</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="flex w-full overflow-hidden">
+                                    <ul class="flex flex-nowrap space-x-5 mx-5 h-auto text-[--hitam] w-full justify-start pt-5"> 
+                                        <li class="flex items-start h-full flex-grow"> 
+                                            <div>
+                                                <span class="text-4xl uppercase font-bold text-[--hitam]">Total</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-end h-full"> 
+                                            <div class="flex flex-col items-end">
+                                                <span id="totalPriceSpan" class="text-4xl font-bold text-[--hitam]">Rp1.013.000</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="flex justify-center items-center pt-10">
+                                    <button id="buyNowBtn" class="w-[80%] py-2 bg-[--ijo] text-[--putih] border-2 border-[--hitam] no-underline rounded-xl text-center hover:bg-[--hoverijo] btn-effect">Buy Now</button>
+                                </div>
+                                <div class="flex justify-center items-center py-3">
+                                    <span class="w-[80%] text-[--hitam] font-medium text-center">Pengiriman gratis diatas  Rp.1.000.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<footer class="bg-[--hitam] text-[--putih] py-8">
+    <div class="mx-auto px-4">
+               <div class="relative">
+                   <div class="logo mb-4 md:mb-0 absolute left-0">
+                       <img class="company-logo-icon h-10" alt="Logo" src="img/Logo pack ur goods.png">
+                   </div>
+               </div>
+               <div class="flex md:flex-row justify-center items-center">
+                   <div class="flex flex-row space-x-14 mb-4 md:mb-0">
+                       <a href="#" class="hover:underline">Koleksi</a>
+                       <a href="#" class="hover:underline">FAQ</a>
+                       <a href="#" class="hover:underline">Customer Service</a>
+                       <a href="#" class="hover:underline">Pengembalian</a>
+                       <a href="#" class="hover:underline">Shipping Policy</a>
+                   </div>
+               </div>
+               <div class="relative">
+                   <div class="social-links flex space-x-4 absolute right-0 ">
+                       <i class="fa-brands fa-facebook fa-lg cursor-pointer" onclick="openVideo()"></i>
+                       <i class="fa-brands fa-instagram fa-lg cursor-pointer" onclick="openInstagram()"></i>
+                       <i class="fa-brands fa-twitter fa-lg cursor-pointer" onclick="openX()"></i>
+                       <i class="fa-brands fa-linkedin fa-lg cursor-pointer" onclick="openlinkedin()"></i>
+                       <i class="fa-brands fa-youtube fa-lg cursor-pointer" onclick="openyt()"></i>
+                   </div>
+                   <script>
+                       const logo = document.getElementById('logo');
+                       logo.addEventListener('click', function() {
+                           window.location.href = 'index.html'; 
+                       });
+               
+                       function openInstagram() {
+                           window.open('https://www.instagram.com/raffi1__/', '_blank');
+                       }
+               
+                       function openX() {
+                           window.open('https://x.com/Raffi1__', '_blank');
+                       }
+               
+                       function openlinkedin() {
+                           window.open('https://www.linkedin.com/in/muhamadraffi/', '_blank');
+                       }
+               
+                       function openyt() {
+                           window.open('https://www.instagram.com/raffi1__/', '_blank');
+                       }
+               
+                       function openVideo() {
+                           const videoPopup = document.getElementById('videoPopup');
+                           const myVideo = document.getElementById('myVideo');
+                           videoPopup.style.display = 'flex'; 
+                           myVideo.play(); 
+                       }
+               
+                       function answer(response) {
+                           const videoPopup = document.getElementById('videoPopup');
+                           videoPopup.style.display = 'none'; 
+                           const myVideo = document.getElementById('myVideo');
+                           myVideo.pause(); 
+                           myVideo.currentTime = 0; 
+                       }
+                   </script>
+               </div>
+               <div class="credits mt-8">
+                   <div class="divider border-t border-gray-600 mb-4"></div>
+                   <div class="flex flex-col md:flex-row justify-center items-center">
+                       <div class="flex space-x-4 text-sm mt-2 md:mt-0">
+                           <div class="text-sm">© 2024 Relume. All rights reserved.</div>
+                           <a href="#" class="hover:underline">Privacy Policy</a>
+                           <a href="#" class="hover:underline">Terms of Service</a>
+                           <a href="#" class="hover:underline">Cookies Settings</a>
+                       </div>
+                   </div>
+               </div>
+</footer>
+            
+            <div id="videoPopup" class="fixed inset-0 items-center justify-center hidden">
+                <div id="videoContent" class="relative w-screen h-screen flex items-center justify-center">
+                    <video id="myVideo" class="w-full h-full object-cover" loop>
+                        <source src="img/You are an idiot!! - Zuhuk (480p, h264, youtube).mp4" type="video/mp4">
+                    </video>
+                    <div id="question" class="absolute bottom-10 left-1/2 text-[--putih] rounded-lg transition-all duration-300 inline-flex flex-col items-center">
+                        <p class="text-lg font-semibold text-center">Raffi ganteng? Yes or No</p>
+                        <div class="flex justify-center mt-4 space-x-4">
+                            <button id="yesButton" class="bg-[--hitam] text-[--putih] px-4 py-2 rounded transition duration-200">Yes</button>
+                            <button id="noButton" class="bg-[--hitam] text-[--putih] px-4 py-2 rounded transition duration-200">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                function moveQuestion() {
+                    const question = document.getElementById('question');
+                    const videoContent = document.getElementById('videoContent');
+                    
+                    if (!question || !videoContent) return;
+                
+                    const containerWidth = videoContent.clientWidth;
+                    const containerHeight = videoContent.clientHeight;
+                
+                    const questionWidth = question.offsetWidth;
+                    const questionHeight = question.offsetHeight;
+                
+                    const randomX = Math.max(0, Math.min(containerWidth - questionWidth, Math.random() * containerWidth));
+                    const randomY = Math.max(0, Math.min(containerHeight - questionHeight, Math.random() * containerHeight));
+                
+                    question.style.left = `${randomX}px`;
+                    question.style.top = `${randomY}px`;
+                    question.style.transform = 'translate(0, 0)'; 
+                }
+            
+                const yesButton = document.getElementById('yesButton');
+                const noButton = document.getElementById('noButton');
+            
+                noButton.addEventListener('mouseenter', () => {
+                    moveQuestion(); 
+                });
+            
+                yesButton.addEventListener('click', () => {
+                    window.location.href = 'index.html';
+                });
+                
+                // Fungsi untuk membuat harga random antara Rp0 - Rp200.000
+                function generateRandomPrice() {
+                    const randomPrice = Math.floor(Math.random() * 200001); // 0 sampai 200000
+                    return formatRupiah(randomPrice);
+                }
+                
+                // Format angka menjadi format mata uang Rupiah
+                function formatRupiah(angka) {
+                    const reverse = angka.toString().split('').reverse().join('');
+                    let ribuan = reverse.match(/\d{1,3}/g);
+                    ribuan = ribuan.join('.').split('').reverse().join('');
+                    return 'Rp' + ribuan;
+                }
+                
+                // Generate random price ketika halaman dimuat
+                document.addEventListener('DOMContentLoaded', function() {
+                    const randomPriceSpan = document.getElementById('randomPriceSpan');
+                    const randomPrice = generateRandomPrice();
+                    
+                    // Set harga random pada elemen span
+                    randomPriceSpan.textContent = randomPrice;
+                    
+                    // Update total dengan harga pengiriman random
+                    updateTotal(randomPrice);
+                    
+                    // Setup event listener untuk tombol Buy Now
+                    document.getElementById('buyNowBtn').addEventListener('click', saveUserData);
+                });
+                
+                // Update harga total
+                function updateTotal(shippingPrice) {
+                    const basePrice = 1013000; // Harga dasar produk
+                    const shipping = parseInt(shippingPrice.replace('Rp', '').replace(/\./g, '')) || 0;
+                    
+                    const total = basePrice + shipping;
+                    document.getElementById('totalPriceSpan').textContent = formatRupiah(total);
+                }
+                
+                // Menyimpan data pengguna untuk halaman Payment
+                function saveUserData() {
+                    // Ambil semua data form
+                    const userData = {
+                        productName: 'Nike Track Jacket',
+                        productSize: 'L',
+                        productQuantity: document.getElementById('productQuantity').value,
+                        fullName: document.getElementById('fullName').value,
+                        phoneNumber: document.getElementById('phoneNumber').value,
+                        address: document.getElementById('address').value,
+                        addressDetail: document.getElementById('addressDetail').value,
+                        country: document.getElementById('country').value,
+                        postalCode: document.getElementById('postalCode').value,
+                        shippingMethod: document.querySelector('input[name="shipping"]:checked') ? 
+                                       (document.getElementById('shippingStandard').checked ? 'Standard' : 'Express') : '',
+                        paymentMethod: document.querySelector('input[name="bank"]:checked') ? 
+                                      (document.getElementById('bankBCA').checked ? 'BCA' : 
+                                       (document.getElementById('bankMandiri').checked ? 'Mandiri' : 'Jago')) : '',
+                        shippingPrice: document.getElementById('randomPriceSpan').textContent,
+                        totalPrice: document.getElementById('totalPriceSpan').textContent
+                    };
+                    
+                    // Simpan ke localStorage
+                    localStorage.setItem('cartData', JSON.stringify(userData));
+                    
+                    // Redirect ke halaman Payment
+                    window.location.href = 'Payment.html';
+                }
+            </script>
+
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js'></script>
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js'></script>
+    <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'></script>
+    <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+</body>
+</html>

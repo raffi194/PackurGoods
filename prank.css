@@ -1,0 +1,39 @@
+
+#videoPopup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+#videoContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+#question {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    animation: move 10s linear infinite; 
+}
+
+@keyframes move {
+    0% { top: 10%; left: 10%; }
+    25% { top: 10%; left: 80%; }
+    50% { top: 80%; left: 80%; }
+    75% { top: 80%; left: 10%; }
+    100% { top: 10%; left: 10%; }
+}

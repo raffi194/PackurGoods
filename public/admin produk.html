@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo bentala putih.png">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/style.css">    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>Admin Produk</title>
+    <style>
+        /* Add some animations */
+        .grid > div {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .grid > div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Checkbox transitions */
+        .checkbox-container label {
+            transition: background-color 0.2s ease;
+        }
+        
+        /* Button transitions */
+        #pilihButton, .text-\[\-\-hitam\].p-2.px-4.rounded-2xl {
+            transition: all 0.3s ease;
+        }
+        
+        /* Card selection style */
+        .product-card.selected {
+            border-color: var(--ijo);
+            border-width: 2px;
+        }
+        
+        .product-card .checkbox-container {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        
+        .product-card.selectable .checkbox-container {
+            opacity: 1;
+        }
+        
+        /* Empty state */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            border: 1px dashed #d1d5db;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <div class="flex flex-nowrap w-full h-screen">
+        <div class="w-[20%] p-4 border-r-2 border-b-2 border-[--hitam] flex flex-col h-full">
+            <div class="flex flex-col flex-grow">
+                <div class="flex flex-col space-y-2 mt-4 ada">
+                    <div class="text-[--hitam] text-md font-normal p-2 rounded">
+                        <ul class="flex items-center justify-start space-x-2">
+                            <li class="flex-nowrap">
+                                <i class="fa-solid fa-grip text-[--hitam]"></i>
+                            </li>
+                            <li class="flex-nowrap">
+                                <div>Dashboard</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-[--ijo] text-[--putih] text-md font-normal p-2 rounded cursor-pointer">
+                        <ul class="flex items-center justify-start space-x-2">
+                            <li class="flex-nowrap">
+                                <i class="fa-solid fa-cube text-[--putih]"></i>  
+                            </li>
+                            <li class="flex-nowrap">
+                                <div>Produk</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col space-y-2 w-full border-t-2 border-[--hitam] idi mt-auto">
+                    <div class="group hover:bg-[--ijo] hover:text-[--putih] text-[--hitam] text-md font-normal p-2 rounded mt-3">
+                        <ul class="flex items-center justify-start space-x-2 cursor-pointer">
+                            <li class="flex-nowrap">
+                                <i class="fa-regular fa-circle-question text-[--hitam] group-hover:text-[--putih]"></i>  
+                            </li>
+                            <li class="flex-nowrap">
+                                <div>Support</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="group hover:bg-[--ijo] hover:text-[--putih] text-[--hitam] text-md font-normal p-2 rounded">
+                        <ul class="flex items-center justify-start space-x-2 cursor-pointer">
+                            <li class="flex-nowrap">
+                                <i class="fa-solid fa-gear text-[--hitam] group-hover:text-[--putih]"></i>  
+                            </li>
+                            <li class="flex-nowrap">
+                                <div>Settings</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col border-t-2 border-[--hitam] mt-4">
+                    <div class="group hover:bg-[--ijo] hover:text-[--putih] text-[--hitam] text-md font-normal p-2 rounded mt-3">
+                        <ul class="flex items-center justify-start space-x-2 cursor-pointer">
+                            <li class="flex-nowrap" onclick="openProfile()">
+                                <div class="h-8 w-8 rounded-full overflow-hidden">
+                                    <img src="img/Profile 2.png" alt="Profile Picture" class="h-full w-full object-cover">
+                                </div>
+                            </li>
+                            <li class="flex-nowrap flex-grow" onclick="openProfile()">
+                                <div>Sukkha Citta</div>
+                            </li>
+                            <li class="flex-nowrap">
+                                <i class="fa-solid fa-ellipsis text-[--hitam] group-hover:text-[--putih] items-end"></i>
+                            </li>
+
+                            <script>
+                                function openProfile() {
+                                window.location.href ='Profile.html';
+                                }
+                                
+                                function openAddProduct() {
+                                window.location.href ='admin tambahkan produk.html';
+                                }
+                            </script>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-[80%] p-4 h-screen">
+            <div class="text-6xl font-bold uppercase">
+                <div>Produk </div>
+            </div>
+            <div class="w-full h-auto p-2">
+                <div class="flex flex-nowrap justify-end space-x-5">
+                    <div class="flex justify-start flex-grow">
+                        <div class="text-[--hitam] p-2 px-4 rounded-2xl border-2 hover:bg-[--hitam] hover:text-[--putih] cursor-pointer border-[--hitam]" onclick="openAddProduct()">Tambahkan Produk</div>
+                    </div>
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Search" class="bg-transparent text-[--item] border-2 border-[--hitam] rounded-2xl py-2 pl-10 pr-3">
+                        <svg class="absolute left-3 top-3 transform  text-[--hitam] h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="flex justify-end space-x-4">
+                        <div id="pilihanContainer" class="hidden flex items-center space-x-4">
+                            <div class="text-[--hitamkurang] p-2">
+                                Pilihan: <span id="selectedCardCount">0</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i id="trashIcon" class="fa-solid fa-trash-can fa-xl cursor-pointer hover:text-[--orange]"></i>
+                            </div>
+                        </div>
+                        <div id="pilihButton" data-state="pilih" class="text-[--hitam] p-2 px-4 rounded-2xl border-2 hover:bg-[--hitam] hover:text-[--putih] cursor-pointer border-[--hitam]">Pilih</div>
+                    </div>
+                    <div class="flex justify-end">
+                        <div class="text-[--hitam] p-2 px-4 rounded-2xl border-2 hover:bg-[--hitam] hover:text-[--putih] cursor-pointer border-[--hitam]" id="addProductButton">Upload Produk</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="flex justify-around w-full"> 
+                    <div id="produkGrid" class="grid grid-cols-3 gap-4 h-[calc(100vh-200px)] overflow-y-auto scrollbar-thin scrollbar-thumb-[--hitam] scrollbar-track-gray-100 p-2">
+                        <!-- Products will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import scripts -->
+    <script src="src/productStorage.js"></script>
+    <script src="src/adminProductListing.js"></script>
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js'></script>
+    <script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js'></script>
+    <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'></script>
+    <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
+    <script src="https:// cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+</body>
+</html>
